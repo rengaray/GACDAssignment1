@@ -90,11 +90,13 @@ completeData <- cbind(features,activity,subject)
 columnsWithMeanSTD <- grep(".*Mean.*|.*Std.*", names(completeData), ignore.case=TRUE)
 ``
 * Adding activity and subject columns
++
 ``
 requiredColumns <- c(columnsWithMeanSTD, 562, 563)
 dim(completeData)
 ``
 * Get the extracted data
++
 ``
 extractedData <- completeData[,requiredColumns]
 dim(extractedData)
@@ -102,6 +104,7 @@ dim(extractedData)
 * ##### End of Part 2 #####
 
 * ##### Beginning Part 3 Use descriptive activity names #####
++
 ``
 extractedData$Activity <- as.character(extractedData$Activity)
 for (i in 1:6){
@@ -115,6 +118,7 @@ extractedData$Activity <- as.factor(extractedData$Activity)
 * ##### Beginning Part 4 Label data set with descriptive variable name #####
 
 * Substitute used acronoyms with readable names
++
 ``
 names(extractedData)<-gsub("Acc", "Accelerometer", names(extractedData))
 names(extractedData)<-gsub("Gyro", "Gyroscope", names(extractedData))
@@ -133,11 +137,13 @@ names(extractedData)<-gsub("gravity", "Gravity", names(extractedData))
 
 * ##### Beginning Part 5 Create and independent tidy data set with average of each variable #####
 *  per activity per subject
++
 ``
 extractedData$Subject <- as.factor(extractedData$Subject)
 extractedData <- data.table(extractedData)
 ``
 *  copy out tidy data to Tidy.txt
++
 ``
 tidyData <- aggregate(. ~Subject + Activity, extractedData, mean)
 tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]

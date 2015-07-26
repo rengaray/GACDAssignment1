@@ -8,7 +8,7 @@
 
 * The following are variables in use for this task and description
 
-Variable Name       | Usage
+##### Variable Name | Usage
 * featuresNames     | To read in names of features from features.txt
 * activityLabels    | To capture relation between no and activity it represents in the data
 * subjectTrain      | To read in subject related info from training dataset

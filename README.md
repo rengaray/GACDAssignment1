@@ -9,7 +9,7 @@
 * Part 2 contains steps to extract only data containing mean and standard deviation values for various measurements
 
 * Part 3 contains steps to associate numbering used to the descriptive activity names
-** LAYING, SITTING , STANDING,WALKING,WALKING_DOWNSTAIRS and WALKING_UPSTAIRS are the activity names respectively
+:LAYING, SITTING , STANDING,WALKING,WALKING_DOWNSTAIRS and WALKING_UPSTAIRS are the activity names respectively
 
 * Part 4 is to replace acronyms with more readable forms of labels for measurements recorded
 

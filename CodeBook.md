@@ -24,20 +24,20 @@
 * extractedData 	| The data table with only mean and standard deviation data and friendly labels 
 * tidyData			| The average per subject per features data to be copied out to Tidy.txt
 
-##### The steps taken to perform the analysis #####
+#### The Steps Taken to Perform the Analysis ####
 
 * load libraries in use for the manipulation and tidying of data
->
++
 ``
 library(data.table)
 library(dplyr)
 ``
 *  End of initial checking and loading of libraries
 
-* #### Beginning Part 1 Merge Data to form single data set
+* ##### Beginning Part 1 Merge Data to form single data set #####
 
 * Capture featurename and activity labels
->
++
 ``
 featureNames<-read.table("UCI HAR Dataset/features.txt")
 activityLabels <-read.table("UCI HAR Dataset/activity_labels.txt", header = FALSE)
@@ -47,14 +47,14 @@ activityLabels <-read.table("UCI HAR Dataset/activity_labels.txt", header = FALS
 
 
 * Read in training data set
-
++
 ``
 subjectTrain <- read.table("UCI HAR Dataset/train/subject_train.txt", header = FALSE)
 activityTrain <- read.table("UCI HAR Dataset/train/y_train.txt", header = FALSE)
 featuresTrain <- read.table("UCI HAR Dataset/train/X_train.txt", header = FALSE)
 ``
 * Read in test data set
-
++
 ``
 subjectTest <- read.table("UCI HAR Dataset/test/subject_test.txt", header = FALSE)
 activityTest <- read.table("UCI HAR Dataset/test/y_test.txt", header = FALSE)
@@ -62,26 +62,30 @@ featuresTest <- read.table("UCI HAR Dataset/test/X_test.txt", header = FALSE)
 ``
 
 * Use rbind to combine data from both data sets
++
 ``
 subject <- rbind(subjectTrain, subjectTest)
 activity <- rbind(activityTrain, activityTest)
 features <- rbind(featuresTrain, featuresTest)
 ``
 *  Capturing column names
++
 ``
 colnames(features) <- t(featureNames[2])
 colnames(activity) <- "Activity"
 colnames(subject) <- "Subject"
 ``
 * Merge the data and extract only needed columns with cbind
++
 ``
 completeData <- cbind(features,activity,subject)
 ``
-* End of Part 1
+* ##### End of Part 1 #####
 
-* Beginning Part 2 Extraction of only mean and standard deviation for each measurement
+* ##### Beginning Part 2 Extraction of only mean and standard deviation for each measurement #####
 
 * Extraction of column with mean and standard deviation data
++
 ``
 columnsWithMeanSTD <- grep(".*Mean.*|.*Std.*", names(completeData), ignore.case=TRUE)
 ``
@@ -95,9 +99,9 @@ dim(completeData)
 extractedData <- completeData[,requiredColumns]
 dim(extractedData)
 ``
-* End of Part 2
+* ##### End of Part 2 #####
 
-* Beginning Part 3 Use descriptive activity names
+* ##### Beginning Part 3 Use descriptive activity names #####
 ``
 extractedData$Activity <- as.character(extractedData$Activity)
 for (i in 1:6){
@@ -106,9 +110,9 @@ for (i in 1:6){
 
 extractedData$Activity <- as.factor(extractedData$Activity)
 ``
-* End of Part 3
+* ##### End of Part 3 #####
 
-* Beginning Part 4 Label data set with descriptive variable name
+* ##### Beginning Part 4 Label data set with descriptive variable name #####
 
 * Substitute used acronoyms with readable names
 ``
@@ -125,9 +129,9 @@ names(extractedData)<-gsub("-freq()", "Frequency", names(extractedData), ignore.
 names(extractedData)<-gsub("angle", "Angle", names(extractedData))
 names(extractedData)<-gsub("gravity", "Gravity", names(extractedData))
 ``
-*  End of Part 4
+* ##### End of Part 4 #####
 
-*  Beginning Part 5 Create and independent tidy data set with average of each variable
+* ##### Beginning Part 5 Create and independent tidy data set with average of each variable #####
 *  per activity per subject
 ``
 extractedData$Subject <- as.factor(extractedData$Subject)
@@ -140,7 +144,7 @@ tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
 write.table(tidyData, file = "Tidy.txt", row.names = FALSE)
 ``
 
-* End of Part 5
+* ##### End of Part 5 #####
 
 	
 

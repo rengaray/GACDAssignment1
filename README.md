@@ -1,6 +1,6 @@
-###GACDAssignment1
+###GACDAssignment1###
 
-####The run_analysis.R contains five parts:
+####The run_analysis.R contains five parts:####
 <p>
 The initial checking is done to ensure we are at the right working directory in which the data is placed under sub directory.
 Libraries are then loaded in. The libraries in use are data.table and dplyr.
@@ -17,7 +17,7 @@ Libraries are then loaded in. The libraries in use are data.table and dplyr.
 
 5. Part 5 is to tidy the data and output it to Tidy.txt for further processing
 
-####The following are steps to perform analysis with run_analysis.R
+####The following are steps to perform analysis with run_analysis.R####
 
 1. Unzip the data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 Make sure the folderand the run_analysis.R script are both in the current working directory.

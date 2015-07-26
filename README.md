@@ -1,7 +1,8 @@
-GACDAssignment1
-The run_analysis.R contains five parts
-The initial checking is done to ensure we are at the right working directory in which the data is placed
-Libraries are then loaded in, the libraries in use are data.table and dplyr
+###GACDAssignment1
+
+>The run_analysis.R contains five parts
+>The initial checking is done to ensure we are at the right working directory in which the data is placed
+>Libraries are then loaded in, the libraries in use are data.table and dplyr
 
 * Part 1 contains steps to merge data from training and test sets into single dataset
 

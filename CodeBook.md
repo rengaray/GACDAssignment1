@@ -150,9 +150,9 @@ tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
 write.table(tidyData, file = "Tidy.txt", row.names = FALSE)
 ``
 
-* ##### End of Part 5 #####
+* #####End of Part 5#####
 
-### T H A N K S ###
+#### T H A N K S ####
 
 	
 

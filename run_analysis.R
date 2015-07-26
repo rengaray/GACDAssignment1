@@ -1,5 +1,6 @@
 # Initial Checking and loading of libraries
 
+# was used only during testing locally
 # Checking if we are in the right working directory
 # currdir<-getwd()
 # if(currdir != "D:/MyProCert/Workspace/GACDAssigment1")

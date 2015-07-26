@@ -17,25 +17,27 @@
 * subjectTest       | To read in subject related info from test dataset
 * activityTest      | To read in activity related info from test dataset
 * featuresTest      | To read in features related info from test dataset
-* subject			| combine subject information from both datasets
-* activity			| combine activity information from both datasets
-* features			| combine features information from both datasets
-* completeData		| the final dataset with all the relevant data combined
-* extractedData 	| the data table with only mean and standard deviation data and friendly labels 
+* subject			| Combine subject information from both datasets
+* activity			| Combine activity information from both datasets
+* features			| Combine features information from both datasets
+* completeData		| The final dataset with all the relevant data combined
+* extractedData 	| The data table with only mean and standard deviation data and friendly labels 
 * tidyData			| The average per subject per features data to be copied out to Tidy.txt
 
 ##### The steps taken to perform the analysis #####
 
 * load libraries in use for the manipulation and tidying of data
+>
 ``
 library(data.table)
 library(dplyr)
 ``
 *  End of initial checking and loading of libraries
 
-* Beginning Part 1 Merge Data to form single data set
+* #### Beginning Part 1 Merge Data to form single data set
 
 * Capture featurename and activity labels
+>
 ``
 featureNames<-read.table("UCI HAR Dataset/features.txt")
 activityLabels <-read.table("UCI HAR Dataset/activity_labels.txt", header = FALSE)

@@ -1,6 +1,6 @@
 ###GACDAssignment1
 
-####The run_analysis.R contains five parts.
+####The run_analysis.R contains five parts:
 <p>
 The initial checking is done to ensure we are at the right working directory in which the data is placed under sub directory.
 Libraries are then loaded in. The libraries in use are data.table and dplyr.
